@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>App Zen Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="App Zen Studio builds simple, safe and reliable Android apps with fair ad experience.">
+  <style>
+    body { margin:0; font-family: Arial, sans-serif; background:#f4f6f8; color:#222; }
+    header { background:#1dbe73; color:white; padding:30px 20px; text-align:center; }
+    section { max-width:900px; margin:auto; padding:20px; }
+    .card { background:white; padding:20px; border-radius:12px; margin-bottom:20px; box-shadow:0 4px 10px rgba(0,0,0,0.05); }
+    footer { text-align:center; padding:15px; font-size:14px; color:#666; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>App Zen Studio</h1>
+  <p>Simple • Safe • Reliable Android Apps</p>
+</header>
+
+<section>
+  <div class="card">
+    <h2>About Us</h2>
+    <p>
+      App Zen Studio is an independent Android app studio focused on creating
+      lightweight, user-friendly applications with transparent and fair ad usage.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Our Apps</h2>
+    <ul>
+      <li><b>WA Status Saver 2026</b> – Save WhatsApp statuses with smart ad control</li>
+      <li><b>QR Lite Scanner</b> – Fast QR scanner & generator with minimal ads</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Ad Policy</h2>
+    <p>
+      Ads are used responsibly. We prefer rewarded ads and limited banners
+      to ensure a smooth user experience.
+    </p>
+  </div>
+</section>
+
+<footer>
+  © 2026 App Zen Studio • Built with ❤️ on GitHub Pages
+</footer>
+
+</body>
+</html>
