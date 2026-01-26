@@ -2,34 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact - App Zen Studio</title>
+  <title>Contact | App Zen Studio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
-    body { font-family:system-ui,Arial; background:#f4f6f8; }
-    section { max-width:700px; margin:auto; padding:50px 20px; background:#fff; border-radius:14px; text-align:center; }
-    h1 { color:#1dbe73; }
-    a { color:#1dbe73; text-decoration:none; font-weight:600; }
+    :root {
+      --primary:#2563EB;
+      --bg:#f5f7fb;
+      --card:#ffffff;
+      --text:#0f172a;
+    }
+
+    body {
+      margin:0;
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    header {
+      background:linear-gradient(135deg,#2563EB,#1E40AF);
+      color:white;
+      padding:50px 20px;
+      text-align:center;
+    }
+
+    section {
+      max-width:700px;
+      margin:50px auto;
+      background:var(--card);
+      padding:40px;
+      border-radius:18px;
+      box-shadow:0 10px 25px rgba(0,0,0,.08);
+      text-align:center;
+    }
+
+    h2 {
+      color:var(--primary);
+    }
+
+    a {
+      color:var(--primary);
+      text-decoration:none;
+      font-weight:700;
+      font-size:1.1rem;
+    }
+
+    footer {
+      text-align:center;
+      padding:25px;
+      font-size:14px;
+      color:#475569;
+    }
   </style>
 </head>
 <body>
 
+<header>
+  <h1>Contact App Zen Studio</h1>
+  <p>We’re here to help</p>
+</header>
+
 <section>
-  <h1>Contact Us</h1>
+  <h2>Get in Touch</h2>
   <p>
     For support, feedback, or business inquiries,
     please contact us via email.
   </p>
 
-  <p style="margin-top:20px;">
+  <p style="margin-top:25px;">
     📧 <a href="mailto:appzenstudioo@gmail.com">
       appzenstudioo@gmail.com
     </a>
   </p>
 
-  <p style="margin-top:30px;">
+  <p style="margin-top:35px;">
     <a href="index.html">← Back to Home</a>
   </p>
 </section>
+
+<footer>
+  © 2026 App Zen Studio
+</footer>
 
 </body>
 </html>
