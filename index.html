@@ -1,174 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>App Zen Studio</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="App Zen Studio builds simple, safe and reliable Android apps with fair and transparent ads.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    :root {
-      --primary:#2563EB;
-      --bg:#f5f7fb;
-      --card:#ffffff;
-      --text:#0f172a;
-    }
+<title>App Zen Studio</title>
+<meta name="description" content="Premium Android apps by App Zen Studio">
 
-    * {
-      box-sizing:border-box;
-      margin:0;
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-    }
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="https://via.placeholder.com/192">
 
-    body {
-      background:var(--bg);
-      color:var(--text);
-    }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
-    header {
-      background:linear-gradient(135deg,#2563EB,#1E40AF);
-      color:white;
-      padding:60px 20px;
-      text-align:center;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#020617;color:white;overflow-x:hidden;}
 
-    header h1 { font-size:2.5rem; }
+/* NAV */
+nav{
+position:fixed;width:100%;padding:15px 30px;
+display:flex;justify-content:space-between;
+background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);z-index:1000;
+}
 
-    nav { margin-top:20px; }
+/* HERO */
+.hero{
+height:100vh;
+display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+background:linear-gradient(-45deg,#1e3a8a,#9333ea,#3b82f6,#020617);
+background-size:400% 400%;
+animation:gradient 10s ease infinite;
+}
 
-    nav a {
-      color:white;
-      margin:0 12px;
-      text-decoration:none;
-    }
+@keyframes gradient{
+0%{background-position:0%}
+50%{background-position:100%}
+100%{background-position:0%}
+}
 
-    section {
-      max-width:1100px;
-      margin:auto;
-      padding:40px 20px;
-    }
+.hero h1{font-size:3.5rem;}
+.btn{
+margin-top:20px;padding:12px 30px;border-radius:30px;
+background:linear-gradient(45deg,#3b82f6,#9333ea);
+color:white;text-decoration:none;
+}
 
-    .grid {
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:20px;
-    }
+/* STATS */
+.stats{display:flex;gap:40px;margin-top:20px;font-size:14px;}
 
-    .card {
-      background:white;
-      padding:25px;
-      border-radius:16px;
-      box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    }
+/* SECTION */
+section{padding:80px 20px;max-width:1100px;margin:auto;}
 
-    .app {
-      padding:15px;
-      border-radius:12px;
-      background:#f1f5ff;
-      margin-bottom:15px;
-    }
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
 
-    .play-btn {
-      display:inline-block;
-      margin-top:10px;
-      padding:10px 18px;
-      border-radius:8px;
-      background:#2563EB;
-      color:white;
-      text-decoration:none;
-    }
+/* CARD */
+.card{
+background:rgba(255,255,255,0.05);
+padding:25px;border-radius:20px;
+backdrop-filter:blur(10px);
+transition:0.4s;
+}
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 40px rgba(59,130,246,0.5);
+}
 
-    footer {
-      text-align:center;
-      padding:30px;
-      color:#475569;
-    }
+/* PLAY BUTTON */
+.play{
+display:inline-block;margin-top:10px;
+padding:10px 18px;border-radius:20px;
+background:#3b82f6;color:white;text-decoration:none;
+}
 
-    .badge {
-      margin-top:20px;
-    }
-
-    .badge img {
-      height:40px;
-    }
-  </style>
+/* FOOTER */
+footer{text-align:center;padding:50px;opacity:.7;}
+.badge img{height:40px;margin-top:10px;}
+</style>
 </head>
 
 <body>
 
-<header>
-  <h1>App Zen Studio</h1>
-  <p>Simple • Safe • Reliable Android Apps</p>
+<nav>
+<b>App Zen Studio</b>
+</nav>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="#">Privacy</a>
-    <a href="#">Contact</a>
-  </nav>
-</header>
+<div class="hero">
+<h1>App Zen Studio</h1>
+<p>Premium Android Apps • Built for Millions</p>
 
-<section>
-  <div class="grid">
+<div class="stats">
+⭐ <span id="users">0</span>+ Users
+🚀 3 Apps
+🔒 Secure
+</div>
 
-    <div class="card">
-      <h2>About</h2>
-      <p>
-        We build lightweight, reliable Android apps with clean UI and minimal ads.
-      </p>
-    </div>
+<a href="#apps" class="btn">Explore Apps</a>
+</div>
 
-    <div class="card">
-      <h2>Our Apps</h2>
+<section id="apps">
+<h2>Our Apps</h2>
 
-      <!-- APP 1 -->
-      <div class="app">
-        <b>WA Status Saver 2026</b>
-        <p>Save WhatsApp status images & videos instantly.</p>
-        <a class="play-btn"
-           href="https://play.google.com/store/apps/details?id=com.appgenstudio.wa_status_saver_2026"
-           target="_blank">Download</a>
-      </div>
+<div class="grid">
 
-      <!-- APP 2 -->
-      <div class="app">
-        <b>QR Lite Scanner</b>
-        <p>Fast QR scanner & generator.</p>
-        <a class="play-btn"
-           href="https://play.google.com/store/apps/details?id=com.appzenstudioo.qrlite"
-           target="_blank">Download</a>
-      </div>
+<div class="card">
+<h3>WA Status Saver 2026</h3>
+<p>Save WhatsApp statuses instantly.</p>
+<a class="play" href="https://play.google.com/store/apps/details?id=com.appgenstudio.wa_status_saver_2026" target="_blank">Install</a>
+</div>
 
-      <!-- APP 3 -->
-      <div class="app">
-        <b>PDF Toolkit</b>
-        <p>All-in-one PDF tools for daily use.</p>
-        <a class="play-btn"
-           href="https://play.google.com/store/apps/details?id=com.appzenstudio.pdftoolkit"
-           target="_blank">Download</a>
-      </div>
+<div class="card">
+<h3>QR Lite Scanner</h3>
+<p>Fast QR scanner.</p>
+<a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudioo.qrlite" target="_blank">Install</a>
+</div>
 
-    </div>
+<div class="card">
+<h3>PDF Toolkit</h3>
+<p>All-in-one PDF tools.</p>
+<a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudio.pdftoolkit" target="_blank">Install</a>
+</div>
 
-    <div class="card">
-      <h2>Trust</h2>
-      <p>We follow Google Play policies and respect user privacy.</p>
-    </div>
-
-  </div>
+</div>
 </section>
 
 <footer>
-  © 2026 App Zen Studio • appzenstudioo@gmail.com
+© 2026 App Zen Studio
 
-  <!-- IMPORTANT BACKLINK -->
-  <div class="badge">
-    <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
-      <img src="https://sellwithboost.com/badge/listing.svg"
-           alt="Listed on Sell With Boost">
-    </a>
-  </div>
-
+<div class="badge">
+<a href="https://sellwithboost.com" target="_blank">
+<img src="https://sellwithboost.com/badge/listing.svg">
+</a>
+</div>
 </footer>
+
+<script>
+/* COUNTER */
+let c=0;
+let t=700;
+let i=setInterval(()=>{
+c+=5;
+document.getElementById("users").innerText=c;
+if(c>=t) clearInterval(i);
+},40);
+
+/* SERVICE WORKER */
+if('serviceWorker' in navigator){
+navigator.serviceWorker.register('sw.js');
+}
+</script>
 
 </body>
 </html>
