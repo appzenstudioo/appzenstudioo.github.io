@@ -62,7 +62,7 @@ nav{
 
 .hero p{
   margin-top:10px;
-  opacity:.8;
+  opacity:.85;
 }
 
 .btn{
@@ -80,9 +80,10 @@ nav{
   margin-top:15px;
   display:flex;
   justify-content:center;
-  gap:20px;
+  gap:15px;
   font-size:14px;
-  opacity:.8;
+  opacity:.9;
+  flex-wrap:wrap;
 }
 
 /* SECTION */
@@ -102,14 +103,15 @@ section{
 /* CARD */
 .card{
   background:rgba(255,255,255,0.05);
-  padding:20px;
+  padding:18px;
   border-radius:16px;
   backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.08);
   transition:0.3s;
 }
 
 .card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-5px);
 }
 
 /* SLIDER */
@@ -117,20 +119,25 @@ section{
   overflow:hidden;
   border-radius:12px;
   margin-bottom:12px;
+  height:380px;
 }
 
 .slides{
   display:flex;
   width:800%;
+  height:100%;
   animation:slide 24s infinite;
 }
 
 .slides img{
   width:100%;
-  object-fit:cover;
+  height:100%;
+  object-fit:contain;
+  background:black;
+  flex-shrink:0;
 }
 
-/* 8 IMAGE SMOOTH LOOP */
+/* ANIMATION */
 @keyframes slide{
   0%{transform:translateX(0);}
   10%{transform:translateX(0);}
@@ -161,13 +168,31 @@ section{
 
 /* BUTTON */
 .play{
-  display:inline-block;
-  margin-top:10px;
-  padding:10px 18px;
+  display:block;
+  margin-top:12px;
+  padding:12px;
   border-radius:20px;
   background:#3b82f6;
   color:white;
   text-decoration:none;
+  text-align:center;
+  font-weight:500;
+}
+
+/* MOBILE FIX */
+@media(max-width:768px){
+  .hero{
+    padding:100px 15px 40px;
+    min-height:60vh;
+  }
+
+  .hero h1{
+    font-size:2rem;
+  }
+
+  .slider{
+    height:300px;
+  }
 }
 
 /* FOOTER */
@@ -186,13 +211,11 @@ footer{
 
 <body>
 
-<!-- NAV -->
 <nav>
   <b>App Zen Studio</b>
   <a href="#apps" style="color:white;text-decoration:none;">Apps</a>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <h1>App Zen Studio</h1>
   <p>Simple • Premium • Reliable Android Apps</p>
@@ -206,26 +229,17 @@ footer{
   <a href="#apps" class="btn">Explore Apps</a>
 </div>
 
-<!-- APPS -->
 <section id="apps">
   <h2 style="margin-bottom:20px;">Our Apps</h2>
 
   <div class="grid">
 
-    <!-- WA STATUS -->
+    <!-- WA -->
     <div class="card">
-      <div class="slider">
-        <div class="slides">
-          <img src="images/wa1.png">
-          <img src="images/wa2.png">
-          <img src="images/wa3.png">
-          <img src="images/wa4.png">
-          <img src="images/wa5.png">
-          <img src="images/wa6.png">
-          <img src="images/wa7.png">
-          <img src="images/wa8.png">
-        </div>
-      </div>
+      <div class="slider"><div class="slides">
+        <img src="images/wa1.png"><img src="images/wa2.png"><img src="images/wa3.png"><img src="images/wa4.png">
+        <img src="images/wa5.png"><img src="images/wa6.png"><img src="images/wa7.png"><img src="images/wa8.png">
+      </div></div>
       <h3>WA Status Saver 2026</h3>
       <p>Save WhatsApp statuses instantly.</p>
       <a class="play" href="https://play.google.com/store/apps/details?id=com.appgenstudio.wa_status_saver_2026" target="_blank">Install</a>
@@ -233,18 +247,10 @@ footer{
 
     <!-- QR -->
     <div class="card">
-      <div class="slider">
-        <div class="slides">
-          <img src="images/qr1.png">
-          <img src="images/qr2.png">
-          <img src="images/qr3.png">
-          <img src="images/qr4.png">
-          <img src="images/qr5.png">
-          <img src="images/qr6.png">
-          <img src="images/qr7.png">
-          <img src="images/qr8.png">
-        </div>
-      </div>
+      <div class="slider"><div class="slides">
+        <img src="images/qr1.png"><img src="images/qr2.png"><img src="images/qr3.png"><img src="images/qr4.png">
+        <img src="images/qr5.png"><img src="images/qr6.png"><img src="images/qr7.png"><img src="images/qr8.png">
+      </div></div>
       <h3>QR Lite Scanner</h3>
       <p>Fast QR scanner & generator.</p>
       <a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudioo.qrlite" target="_blank">Install</a>
@@ -252,18 +258,10 @@ footer{
 
     <!-- PDF -->
     <div class="card">
-      <div class="slider">
-        <div class="slides">
-          <img src="images/pdf1.png">
-          <img src="images/pdf2.png">
-          <img src="images/pdf3.png">
-          <img src="images/pdf4.png">
-          <img src="images/pdf5.png">
-          <img src="images/pdf6.png">
-          <img src="images/pdf7.png">
-          <img src="images/pdf8.png">
-        </div>
-      </div>
+      <div class="slider"><div class="slides">
+        <img src="images/pdf1.png"><img src="images/pdf2.png"><img src="images/pdf3.png"><img src="images/pdf4.png">
+        <img src="images/pdf5.png"><img src="images/pdf6.png"><img src="images/pdf7.png"><img src="images/pdf8.png">
+      </div></div>
       <h3>PDF Toolkit</h3>
       <p>All-in-one PDF tools.</p>
       <a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudio.pdftoolkit" target="_blank">Install</a>
@@ -272,16 +270,13 @@ footer{
   </div>
 </section>
 
-<!-- CONTACT -->
 <section>
   <h2>Contact</h2>
   <p>appzenstudioo@gmail.com</p>
 </section>
 
-<!-- FOOTER -->
 <footer>
   © 2026 App Zen Studio
-
   <div class="badge">
     <a href="https://sellwithboost.com" target="_blank">
       <img src="https://sellwithboost.com/badge/listing.svg">
@@ -290,9 +285,7 @@ footer{
 </footer>
 
 <script>
-let count=0;
-let target=700;
-
+let count=0,target=700;
 let counter=setInterval(()=>{
   count+=5;
   document.getElementById("users").innerText=count;
