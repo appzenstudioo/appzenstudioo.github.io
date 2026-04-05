@@ -8,7 +8,7 @@
 
   <style>
     :root {
-      --primary:#2563EB;   /* Professional Blue */
+      --primary:#2563EB;
       --bg:#f5f7fb;
       --card:#ffffff;
       --text:#0f172a;
@@ -23,7 +23,6 @@
     body {
       background:var(--bg);
       color:var(--text);
-      line-height:1.6;
     }
 
     header {
@@ -33,25 +32,14 @@
       text-align:center;
     }
 
-    header h1 {
-      font-size:2.5rem;
-      margin-bottom:10px;
-    }
+    header h1 { font-size:2.5rem; }
 
-    header p {
-      opacity:.95;
-      font-size:1.1rem;
-    }
-
-    nav {
-      margin-top:20px;
-    }
+    nav { margin-top:20px; }
 
     nav a {
       color:white;
       margin:0 12px;
       text-decoration:none;
-      font-weight:500;
     }
 
     section {
@@ -67,22 +55,17 @@
     }
 
     .card {
-      background:var(--card);
+      background:white;
       padding:25px;
       border-radius:16px;
       box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    }
-
-    .apps {
-      display:flex;
-      flex-direction:column;
-      gap:15px;
     }
 
     .app {
       padding:15px;
       border-radius:12px;
       background:#f1f5ff;
+      margin-bottom:15px;
     }
 
     .play-btn {
@@ -90,20 +73,105 @@
       margin-top:10px;
       padding:10px 18px;
       border-radius:8px;
-      background:var(--primary);
+      background:#2563EB;
       color:white;
       text-decoration:none;
-      font-weight:600;
-      font-size:14px;
     }
 
     footer {
       text-align:center;
       padding:30px;
-      font-size:14px;
       color:#475569;
     }
 
+    .badge {
+      margin-top:20px;
+    }
+
+    .badge img {
+      height:40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>App Zen Studio</h1>
+  <p>Simple • Safe • Reliable Android Apps</p>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Privacy</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
+
+<section>
+  <div class="grid">
+
+    <div class="card">
+      <h2>About</h2>
+      <p>
+        We build lightweight, reliable Android apps with clean UI and minimal ads.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Our Apps</h2>
+
+      <!-- APP 1 -->
+      <div class="app">
+        <b>WA Status Saver 2026</b>
+        <p>Save WhatsApp status images & videos instantly.</p>
+        <a class="play-btn"
+           href="https://play.google.com/store/apps/details?id=com.appgenstudio.wa_status_saver_2026"
+           target="_blank">Download</a>
+      </div>
+
+      <!-- APP 2 -->
+      <div class="app">
+        <b>QR Lite Scanner</b>
+        <p>Fast QR scanner & generator.</p>
+        <a class="play-btn"
+           href="https://play.google.com/store/apps/details?id=com.appzenstudioo.qrlite"
+           target="_blank">Download</a>
+      </div>
+
+      <!-- APP 3 -->
+      <div class="app">
+        <b>PDF Toolkit</b>
+        <p>All-in-one PDF tools for daily use.</p>
+        <a class="play-btn"
+           href="https://play.google.com/store/apps/details?id=com.appzenstudio.pdftoolkit"
+           target="_blank">Download</a>
+      </div>
+
+    </div>
+
+    <div class="card">
+      <h2>Trust</h2>
+      <p>We follow Google Play policies and respect user privacy.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 App Zen Studio • appzenstudioo@gmail.com
+
+  <!-- IMPORTANT BACKLINK -->
+  <div class="badge">
+    <a href="https://sellwithboost.com" target="_blank" rel="noopener noreferrer">
+      <img src="https://sellwithboost.com/badge/listing.svg"
+           alt="Listed on Sell With Boost">
+    </a>
+  </div>
+
+</footer>
+
+</body>
+</html>
     footer a {
       color:var(--primary);
       text-decoration:none;
