@@ -127,9 +127,7 @@ section{
   transition:transform 0.3s ease;
 }
 
-.slide{
-  min-width:100%;
-}
+.slide{min-width:100%;}
 
 .slide img{
   width:100%;
@@ -161,8 +159,23 @@ section{
   margin-top:15px;
 }
 
-.play img{
-  width:140px;
+.play img{width:140px;}
+
+/* CONTACT FORM */
+form input, form textarea{
+  padding:12px;
+  border-radius:10px;
+  border:none;
+}
+
+form button{
+  padding:12px;
+  border:none;
+  border-radius:25px;
+  background:linear-gradient(45deg,#3b82f6,#9333ea);
+  color:white;
+  font-weight:600;
+  cursor:pointer;
 }
 
 /* FOOTER */
@@ -197,7 +210,7 @@ footer a{
 
   <div class="hero-buttons">
     <a href="contact.html">Contact</a>
-    <a href="mailto:appzenstudioo@gmail.com">Hire Me</a>
+    <a href="#contact">Send Enquiry</a>
     <a href="privacy.html">Privacy</a>
   </div>
 </div>
@@ -207,113 +220,29 @@ footer a{
 
 <div class="grid">
 
-<!-- WA -->
-<div class="card">
-<div class="app-header">
-<img src="wa_icon.png" class="app-icon">
-<div>
-<b>WA Status Saver 2026</b>
-<div class="meta">⭐ 5 • 500+ downloads</div>
-</div>
-</div>
-
-<div class="phone">
-<div class="screen" id="slider1">
-<div class="slides">
-<div class="slide"><img src="wa1.png"></div>
-<div class="slide"><img src="wa2.png"></div>
-<div class="slide"><img src="wa3.png"></div>
-<div class="slide"><img src="wa4.png"></div>
-<div class="slide"><img src="wa5.png"></div>
-<div class="slide"><img src="wa6.png"></div>
-</div>
-</div>
-</div>
-
-<div class="controls">
-<button class="control-btn" onclick="prev('slider1')">◀</button>
-<button class="control-btn" onclick="next('slider1')">▶</button>
-</div>
-
-<div class="play">
-<a href="https://play.google.com/store/apps/details?id=com.appgenstudio.wa_status_saver_2026" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
-</a>
-</div>
-</div>
-
-<!-- QR -->
-<div class="card">
-<div class="app-header">
-<img src="qr_icon.png" class="app-icon">
-<div>
-<b>QR Lite Scanner</b>
-<div class="meta">⭐ 5 • 200+ downloads</div>
-</div>
-</div>
-
-<div class="phone">
-<div class="screen" id="slider2">
-<div class="slides">
-<div class="slide"><img src="qr1.png"></div>
-<div class="slide"><img src="qr2.png"></div>
-<div class="slide"><img src="qr3.png"></div>
-<div class="slide"><img src="qr4.png"></div>
-<div class="slide"><img src="qr5.png"></div>
-</div>
-</div>
-</div>
-
-<div class="controls">
-<button class="control-btn" onclick="prev('slider2')">◀</button>
-<button class="control-btn" onclick="next('slider2')">▶</button>
-</div>
-
-<div class="play">
-<a href="https://play.google.com/store/apps/details?id=com.appzenstudioo.qrlite" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
-</a>
-</div>
-</div>
-
-<!-- PDF -->
-<div class="card">
-<div class="app-header">
-<img src="pdf_icon.png" class="app-icon">
-<div>
-<b>PDF Toolkit</b>
-<div class="meta">⭐ 5 • 200+ downloads</div>
-</div>
-</div>
-
-<div class="phone">
-<div class="screen" id="slider3">
-<div class="slides">
-<div class="slide"><img src="pdf1.png"></div>
-<div class="slide"><img src="pdf2.png"></div>
-<div class="slide"><img src="pdf3.png"></div>
-<div class="slide"><img src="pdf4.png"></div>
-<div class="slide"><img src="pdf5.png"></div>
-<div class="slide"><img src="pdf6.png"></div>
-<div class="slide"><img src="pdf7.png"></div>
-<div class="slide"><img src="pdf8.png"></div>
-</div>
-</div>
-</div>
-
-<div class="controls">
-<button class="control-btn" onclick="prev('slider3')">◀</button>
-<button class="control-btn" onclick="next('slider3')">▶</button>
-</div>
-
-<div class="play">
-<a href="https://play.google.com/store/apps/details?id=com.appzenstudio.pdftoolkit" target="_blank">
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
-</a>
-</div>
-</div>
+<!-- (KEEP YOUR 3 APP CARDS SAME AS BEFORE) -->
 
 </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact">
+<h2 style="text-align:center;margin-bottom:20px;">Send an Enquiry</h2>
+
+<p style="text-align:center;opacity:.7;margin-bottom:30px;">
+Have an idea or want to work together? Send me a message 🚀
+</p>
+
+<form action="https://formspree.io/f/xnjolyda" method="POST"
+style="max-width:500px;margin:auto;display:flex;flex-direction:column;gap:15px;">
+
+<input type="text" name="name" placeholder="Your Name" required>
+<input type="email" name="email" placeholder="Your Email" required>
+<textarea name="message" rows="4" placeholder="Your Message" required></textarea>
+
+<button type="submit">Send Enquiry</button>
+
+</form>
 </section>
 
 <footer>
