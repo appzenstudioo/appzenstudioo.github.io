@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>App Zen Studio</title>
 
-<meta name="description" content="App Zen Studio - Premium Android Apps like PDF Toolkit, QR Scanner, WA Status Saver">
+<meta name="description" content="App Zen Studio - Premium Android Apps">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -13,11 +13,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
 html{scroll-behavior:smooth;}
-
-body{
-  background:#020617;
-  color:white;
-}
+body{background:#020617;color:white;}
 
 /* NAV */
 nav{
@@ -45,6 +41,7 @@ nav{
 .btn{
   display:inline-block;
   margin-top:18px;
+  margin-bottom:10px;
   padding:14px 28px;
   border-radius:30px;
   background:linear-gradient(45deg,#3b82f6,#9333ea);
@@ -53,9 +50,17 @@ nav{
   font-weight:600;
 }
 
+/* FIXED BUTTONS */
+.hero-buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
 .hero-buttons a{
-  margin:6px;
-  padding:10px 18px;
+  padding:10px 20px;
   border-radius:20px;
   border:1px solid rgba(255,255,255,0.3);
   color:white;
@@ -134,12 +139,10 @@ section{
   height:420px;
   overflow:hidden;
   border-radius:20px;
-  position:relative;
 }
 
 .slides{
   display:flex;
-  transition:transform .3s ease;
 }
 
 .slide{
@@ -152,7 +155,7 @@ section{
   object-fit:cover;
 }
 
-/* SLIDER BUTTONS */
+/* CONTROLS */
 .controls{
   display:flex;
   justify-content:center;
@@ -166,11 +169,6 @@ section{
   border-radius:10px;
   background:#1e293b;
   color:white;
-}
-
-/* PLAY BUTTON */
-.play img{
-  margin-top:10px;
 }
 
 /* FOOTER */
@@ -219,7 +217,7 @@ footer a{
 
   <div class="grid">
 
-    <!-- APP TEMPLATE -->
+    <!-- WA -->
     <div class="card">
       <div class="app-header">
         <img src="wa_icon.png" class="app-icon">
@@ -246,10 +244,6 @@ footer a{
         <button class="control-btn" onclick="prev('slider1')">◀</button>
         <button class="control-btn" onclick="next('slider1')">▶</button>
       </div>
-
-      <a class="play" href="https://play.google.com/store/apps/details?id=com.appgenstudio.wa_status_saver_2026">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" width="140">
-      </a>
     </div>
 
     <!-- QR -->
@@ -278,10 +272,6 @@ footer a{
         <button class="control-btn" onclick="prev('slider2')">◀</button>
         <button class="control-btn" onclick="next('slider2')">▶</button>
       </div>
-
-      <a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudioo.qrlite">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" width="140">
-      </a>
     </div>
 
     <!-- PDF -->
@@ -313,10 +303,6 @@ footer a{
         <button class="control-btn" onclick="prev('slider3')">◀</button>
         <button class="control-btn" onclick="next('slider3')">▶</button>
       </div>
-
-      <a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudio.pdftoolkit">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" width="140">
-      </a>
     </div>
 
   </div>
@@ -332,48 +318,59 @@ footer a{
 const sliders = {};
 
 function init(id){
-  sliders[id] = {index:0};
-}
+  sliders[id] = { index: 0, startX: 0, currentX: 0, dragging: false };
 
-function update(id){
-  const slider = document.querySelector(`#${id} .slides`);
-  slider.style.transform = `translateX(-${sliders[id].index*100}%)`;
+  const el = document.querySelector(`#${id} .slides`);
+
+  el.addEventListener("touchstart", (e) => {
+    sliders[id].startX = e.touches[0].clientX;
+    sliders[id].dragging = true;
+    el.style.transition = "none";
+  });
+
+  el.addEventListener("touchmove", (e) => {
+    if (!sliders[id].dragging) return;
+
+    sliders[id].currentX = e.touches[0].clientX;
+    let diff = sliders[id].currentX - sliders[id].startX;
+
+    el.style.transform = `translateX(calc(-${sliders[id].index * 100}% + ${diff}px))`;
+  });
+
+  el.addEventListener("touchend", () => {
+    let diff = sliders[id].currentX - sliders[id].startX;
+    sliders[id].dragging = false;
+
+    if (diff < -50) sliders[id].index++;
+    if (diff > 50) sliders[id].index--;
+
+    const total = el.children.length;
+
+    if (sliders[id].index < 0) sliders[id].index = 0;
+    if (sliders[id].index >= total) sliders[id].index = total - 1;
+
+    el.style.transition = "transform 0.3s ease";
+    el.style.transform = `translateX(-${sliders[id].index * 100}%)`;
+  });
 }
 
 function next(id){
-  const slider = document.querySelector(`#${id} .slides`);
-  const total = slider.children.length;
+  const el = document.querySelector(`#${id} .slides`);
+  const total = el.children.length;
   sliders[id].index = (sliders[id].index + 1) % total;
-  update(id);
+  el.style.transition = "transform 0.3s ease";
+  el.style.transform = `translateX(-${sliders[id].index * 100}%)`;
 }
 
 function prev(id){
-  const slider = document.querySelector(`#${id} .slides`);
-  const total = slider.children.length;
+  const el = document.querySelector(`#${id} .slides`);
+  const total = el.children.length;
   sliders[id].index = (sliders[id].index - 1 + total) % total;
-  update(id);
+  el.style.transition = "transform 0.3s ease";
+  el.style.transform = `translateX(-${sliders[id].index * 100}%)`;
 }
 
-/* Touch Swipe */
-function enableSwipe(id){
-  const el = document.getElementById(id);
-  let startX=0;
-
-  el.addEventListener("touchstart",(e)=>{
-    startX=e.touches[0].clientX;
-  });
-
-  el.addEventListener("touchend",(e)=>{
-    let diff = startX - e.changedTouches[0].clientX;
-    if(diff>50) next(id);
-    if(diff<-50) prev(id);
-  });
-}
-
-["slider1","slider2","slider3"].forEach(id=>{
-  init(id);
-  enableSwipe(id);
-});
+["slider1","slider2","slider3"].forEach(init);
 </script>
 
 </body>
