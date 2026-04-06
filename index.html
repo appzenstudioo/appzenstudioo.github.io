@@ -7,42 +7,13 @@
 
 <meta name="description" content="App Zen Studio - Premium Android Apps">
 
-<!-- GOOGLE ANALYTICS -->
-<!-- Replace G-XXXXXXX with your ID -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-XXXXXXX');
-</script>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+
 html{scroll-behavior:smooth;}
 body{background:#020617;color:white;}
-
-/* LOADER */
-#loader{
-  position:fixed;
-  width:100%;
-  height:100%;
-  background:#020617;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-.loader-circle{
-  width:40px;height:40px;
-  border:4px solid #3b82f6;
-  border-top:4px solid transparent;
-  border-radius:50%;
-  animation:spin 1s linear infinite;
-}
-@keyframes spin{to{transform:rotate(360deg);}}
 
 /* NAV */
 nav{
@@ -61,20 +32,9 @@ nav{
   background:radial-gradient(circle at top,#3b82f6,#020617);
 }
 
-.hero h1{
-  font-size:2.5rem;
-  animation:fadeUp 1s ease;
-}
-.hero p{
-  opacity:.8;
-  margin-top:6px;
-  animation:fadeUp 1.2s ease;
-}
-.stats{
-  margin-top:10px;
-  font-size:14px;
-  animation:fadeUp 1.4s ease;
-}
+.hero h1{font-size:2.5rem;}
+.hero p{opacity:.8;margin-top:6px;}
+.stats{margin-top:10px;font-size:14px;}
 
 .btn{
   display:inline-block;
@@ -86,7 +46,6 @@ nav{
   color:white;
   text-decoration:none;
   font-weight:600;
-  animation:fadeUp 1.6s ease;
 }
 
 /* BUTTON FIX */
@@ -126,11 +85,13 @@ section{
   backdrop-filter:blur(15px);
   border:1px solid rgba(255,255,255,0.08);
   transition:.3s;
-  animation:fadeUp 1s ease;
 }
 
-.card:hover{transform:translateY(-10px);}
+.card:hover{
+  transform:translateY(-10px);
+}
 
+/* APP HEADER */
 .app-header{
   display:flex;
   align-items:center;
@@ -139,6 +100,11 @@ section{
 
 .app-icon{
   width:50px;height:50px;border-radius:12px;
+}
+
+.meta{
+  font-size:13px;
+  opacity:.8;
 }
 
 /* PHONE */
@@ -154,17 +120,33 @@ section{
   height:420px;
   overflow:hidden;
   border-radius:20px;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.slides{display:flex;}
-.slide{min-width:100%;}
-.slide img{width:100%;height:100%;object-fit:cover;}
+.slides{
+  display:flex;
+  transition:transform 0.3s ease;
+}
+
+.slide{
+  min-width:100%;
+}
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:contain; /* FIXED */
+}
 
 /* CONTROLS */
 .controls{
   display:flex;
   justify-content:center;
   gap:10px;
+  margin-top:10px;
 }
 
 .control-btn{
@@ -175,11 +157,15 @@ section{
   color:white;
 }
 
-/* PLAY STORE CENTER */
+/* PLAY BUTTON */
 .play{
   display:flex;
   justify-content:center;
   margin-top:15px;
+}
+
+.play a img{
+  width:140px;
 }
 
 /* FOOTER */
@@ -189,12 +175,12 @@ footer{
   opacity:.7;
 }
 
-/* ANIMATION */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(20px);}
-  to{opacity:1;transform:translateY(0);}
+footer a{
+  color:#ccc;
+  text-decoration:none;
 }
 
+/* MOBILE */
 @media(max-width:768px){
   .screen{height:360px;}
 }
@@ -202,11 +188,6 @@ footer{
 </head>
 
 <body>
-
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-circle"></div>
-</div>
 
 <nav><b>App Zen Studio</b></nav>
 
@@ -228,29 +209,109 @@ footer{
 
 <div class="grid">
 
+<!-- WA -->
 <div class="card">
 <div class="app-header">
 <img src="wa_icon.png" class="app-icon">
+<div>
 <b>WA Status Saver 2026</b>
+<div class="meta">⭐ 5 • 500+ downloads</div>
+</div>
 </div>
 
 <div class="phone">
 <div class="screen" id="slider1">
 <div class="slides">
-<img src="wa1.png">
-<img src="wa2.png">
-<img src="wa3.png">
+<div class="slide"><img src="wa1.png"></div>
+<div class="slide"><img src="wa2.png"></div>
+<div class="slide"><img src="wa3.png"></div>
+<div class="slide"><img src="wa4.png"></div>
+<div class="slide"><img src="wa5.png"></div>
+<div class="slide"><img src="wa6.png"></div>
 </div>
 </div>
 </div>
 
 <div class="controls">
-<button onclick="prev('slider1')">◀</button>
-<button onclick="next('slider1')">▶</button>
+<button class="control-btn" onclick="prev('slider1')">◀</button>
+<button class="control-btn" onclick="next('slider1')">▶</button>
 </div>
 
 <div class="play">
-<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" width="140">
+<a href="https://play.google.com/store/apps/details?id=com.appgenstudio.wa_status_saver_2026" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+</a>
+</div>
+</div>
+
+<!-- QR -->
+<div class="card">
+<div class="app-header">
+<img src="qr_icon.png" class="app-icon">
+<div>
+<b>QR Lite Scanner</b>
+<div class="meta">⭐ 5 • 200+ downloads</div>
+</div>
+</div>
+
+<div class="phone">
+<div class="screen" id="slider2">
+<div class="slides">
+<div class="slide"><img src="qr1.png"></div>
+<div class="slide"><img src="qr2.png"></div>
+<div class="slide"><img src="qr3.png"></div>
+<div class="slide"><img src="qr4.png"></div>
+<div class="slide"><img src="qr5.png"></div>
+</div>
+</div>
+</div>
+
+<div class="controls">
+<button class="control-btn" onclick="prev('slider2')">◀</button>
+<button class="control-btn" onclick="next('slider2')">▶</button>
+</div>
+
+<div class="play">
+<a href="https://play.google.com/store/apps/details?id=com.appzenstudioo.qrlite" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+</a>
+</div>
+</div>
+
+<!-- PDF -->
+<div class="card">
+<div class="app-header">
+<img src="pdf_icon.png" class="app-icon">
+<div>
+<b>PDF Toolkit</b>
+<div class="meta">⭐ 5 • 200+ downloads</div>
+</div>
+</div>
+
+<div class="phone">
+<div class="screen" id="slider3">
+<div class="slides">
+<div class="slide"><img src="pdf1.png"></div>
+<div class="slide"><img src="pdf2.png"></div>
+<div class="slide"><img src="pdf3.png"></div>
+<div class="slide"><img src="pdf4.png"></div>
+<div class="slide"><img src="pdf5.png"></div>
+<div class="slide"><img src="pdf6.png"></div>
+<div class="slide"><img src="pdf7.png"></div>
+<div class="slide"><img src="pdf8.png"></div>
+</div>
+</div>
+</div>
+
+<div class="controls">
+<button class="control-btn" onclick="prev('slider3')">◀</button>
+<button class="control-btn" onclick="next('slider3')">▶</button>
+</div>
+
+<div class="play">
+<a href="https://play.google.com/store/apps/details?id=com.appzenstudio.pdftoolkit" target="_blank">
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+</a>
 </div>
 </div>
 
@@ -264,25 +325,27 @@ footer{
 </footer>
 
 <script>
-// LOADER
-window.onload = ()=>{document.getElementById("loader").style.display="none";};
-
-// SLIDER
 const sliders={};
-function init(id){sliders[id]={index:0};}
+
+function init(id){
+  sliders[id]={index:0};
+}
+
 function next(id){
-let s=document.querySelector(`#${id} .slides`);
-let t=s.children.length;
-sliders[id].index=(sliders[id].index+1)%t;
-s.style.transform=`translateX(-${sliders[id].index*100}%)`;
+  const s=document.querySelector(`#${id} .slides`);
+  const total=s.children.length;
+  sliders[id].index=(sliders[id].index+1)%total;
+  s.style.transform=`translateX(-${sliders[id].index*100}%)`;
 }
+
 function prev(id){
-let s=document.querySelector(`#${id} .slides`);
-let t=s.children.length;
-sliders[id].index=(sliders[id].index-1+t)%t;
-s.style.transform=`translateX(-${sliders[id].index*100}%)`;
+  const s=document.querySelector(`#${id} .slides`);
+  const total=s.children.length;
+  sliders[id].index=(sliders[id].index-1+total)%total;
+  s.style.transform=`translateX(-${sliders[id].index*100}%)`;
 }
-["slider1"].forEach(init);
+
+["slider1","slider2","slider3"].forEach(init);
 </script>
 
 </body>
