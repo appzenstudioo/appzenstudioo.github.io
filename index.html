@@ -5,14 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>App Zen Studio</title>
 
-<meta name="description" content="App Zen Studio - Android Apps like PDF Toolkit, QR Scanner, WA Status Saver">
+<meta name="description" content="App Zen Studio - Premium Android Apps like PDF Toolkit, QR Scanner, WA Status Saver">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{background:#020617;color:white;}
 
+html{scroll-behavior:smooth;}
+
+body{
+  background:#020617;
+  color:white;
+}
+
+/* NAV */
 nav{
   position:fixed;
   width:100%;
@@ -24,8 +31,9 @@ nav{
   z-index:1000;
 }
 
+/* HERO */
 .hero{
-  padding:100px 20px 50px;
+  padding:120px 20px 60px;
   text-align:center;
   background:radial-gradient(circle at top,#3b82f6,#020617);
 }
@@ -54,6 +62,7 @@ nav{
   text-decoration:none;
 }
 
+/* SECTION */
 section{
   padding:60px 20px;
   max-width:1100px;
@@ -66,11 +75,13 @@ section{
   gap:30px;
 }
 
+/* CARD */
 .card{
   background:rgba(255,255,255,0.05);
   border-radius:20px;
   padding:20px;
   backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.08);
   transition:.3s;
 }
 
@@ -78,6 +89,7 @@ section{
   transform:translateY(-10px);
 }
 
+/* APP HEADER */
 .app-header{
   display:flex;
   align-items:center;
@@ -96,6 +108,7 @@ section{
   opacity:.8;
 }
 
+/* PHONE */
 .phone{
   width:240px;
   margin:auto;
@@ -121,11 +134,12 @@ section{
   height:420px;
   overflow:hidden;
   border-radius:20px;
+  position:relative;
 }
 
 .slides{
   display:flex;
-  transition:transform .4s ease;
+  transition:transform .3s ease;
 }
 
 .slide{
@@ -138,24 +152,40 @@ section{
   object-fit:cover;
 }
 
-.play{
-  display:block;
-  margin-top:12px;
-  padding:12px;
-  border-radius:25px;
-  background:linear-gradient(45deg,#3b82f6,#9333ea);
-  text-align:center;
-  text-decoration:none;
-  color:white;
-  font-weight:600;
+/* SLIDER BUTTONS */
+.controls{
+  display:flex;
+  justify-content:center;
+  margin-top:10px;
+  gap:10px;
 }
 
+.control-btn{
+  padding:6px 12px;
+  border:none;
+  border-radius:10px;
+  background:#1e293b;
+  color:white;
+}
+
+/* PLAY BUTTON */
+.play img{
+  margin-top:10px;
+}
+
+/* FOOTER */
 footer{
   text-align:center;
   padding:40px;
   opacity:.7;
 }
 
+footer a{
+  color:#ccc;
+  text-decoration:none;
+}
+
+/* MOBILE */
 @media(max-width:768px){
   .screen{height:360px;}
 }
@@ -189,7 +219,7 @@ footer{
 
   <div class="grid">
 
-    <!-- WA -->
+    <!-- APP TEMPLATE -->
     <div class="card">
       <div class="app-header">
         <img src="wa_icon.png" class="app-icon">
@@ -212,7 +242,14 @@ footer{
         </div>
       </div>
 
-      <a class="play" href="https://play.google.com/store/apps/details?id=com.appgenstudio.wa_status_saver_2026">Install</a>
+      <div class="controls">
+        <button class="control-btn" onclick="prev('slider1')">◀</button>
+        <button class="control-btn" onclick="next('slider1')">▶</button>
+      </div>
+
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.appgenstudio.wa_status_saver_2026">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" width="140">
+      </a>
     </div>
 
     <!-- QR -->
@@ -237,7 +274,14 @@ footer{
         </div>
       </div>
 
-      <a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudioo.qrlite">Install</a>
+      <div class="controls">
+        <button class="control-btn" onclick="prev('slider2')">◀</button>
+        <button class="control-btn" onclick="next('slider2')">▶</button>
+      </div>
+
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudioo.qrlite">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" width="140">
+      </a>
     </div>
 
     <!-- PDF -->
@@ -265,51 +309,71 @@ footer{
         </div>
       </div>
 
-      <a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudio.pdftoolkit">Install</a>
+      <div class="controls">
+        <button class="control-btn" onclick="prev('slider3')">◀</button>
+        <button class="control-btn" onclick="next('slider3')">▶</button>
+      </div>
+
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudio.pdftoolkit">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" width="140">
+      </a>
     </div>
 
   </div>
 </section>
 
 <footer>
-  © 2026 App Zen Studio
+  © 2026 App Zen Studio <br>
+  <a href="contact.html">Contact</a> • 
+  <a href="privacy.html">Privacy Policy</a>
 </footer>
 
 <script>
-function initSlider(id){
-  const container = document.querySelector(`#${id} .slides`);
-  let index = 0;
-  let startX = 0;
+const sliders = {};
 
-  function update(){
-    container.style.transform = `translateX(-${index*100}%)`;
-  }
+function init(id){
+  sliders[id] = {index:0};
+}
 
-  setInterval(()=>{
-    index=(index+1)%container.children.length;
-    update();
-  },2500);
+function update(id){
+  const slider = document.querySelector(`#${id} .slides`);
+  slider.style.transform = `translateX(-${sliders[id].index*100}%)`;
+}
 
-  container.addEventListener("touchstart",(e)=>{
+function next(id){
+  const slider = document.querySelector(`#${id} .slides`);
+  const total = slider.children.length;
+  sliders[id].index = (sliders[id].index + 1) % total;
+  update(id);
+}
+
+function prev(id){
+  const slider = document.querySelector(`#${id} .slides`);
+  const total = slider.children.length;
+  sliders[id].index = (sliders[id].index - 1 + total) % total;
+  update(id);
+}
+
+/* Touch Swipe */
+function enableSwipe(id){
+  const el = document.getElementById(id);
+  let startX=0;
+
+  el.addEventListener("touchstart",(e)=>{
     startX=e.touches[0].clientX;
   });
 
-  container.addEventListener("touchend",(e)=>{
-    let diff=startX-e.changedTouches[0].clientX;
-
-    if(diff>50) index++;
-    if(diff<-50) index--;
-
-    if(index<0) index=0;
-    if(index>=container.children.length) index=container.children.length-1;
-
-    update();
+  el.addEventListener("touchend",(e)=>{
+    let diff = startX - e.changedTouches[0].clientX;
+    if(diff>50) next(id);
+    if(diff<-50) prev(id);
   });
 }
 
-initSlider("slider1");
-initSlider("slider2");
-initSlider("slider3");
+["slider1","slider2","slider3"].forEach(id=>{
+  init(id);
+  enableSwipe(id);
+});
 </script>
 
 </body>
