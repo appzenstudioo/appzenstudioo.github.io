@@ -8,23 +8,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-body{
-  background:#020617;
-  color:white;
-}
+body{background:#020617;color:white;}
 
 /* NAV */
 nav{
   position:fixed;
   width:100%;
-  top:0;
   padding:15px 25px;
   display:flex;
   justify-content:space-between;
@@ -40,21 +31,10 @@ nav{
   background:radial-gradient(circle at top,#3b82f6,#020617);
 }
 
-.hero h1{
-  font-size:2.6rem;
-}
+.hero h1{font-size:2.5rem;}
+.hero p{opacity:.8;margin-top:6px;}
+.stats{margin-top:10px;font-size:14px;}
 
-.hero p{
-  opacity:.8;
-  margin-top:6px;
-}
-
-.stats{
-  margin-top:10px;
-  font-size:14px;
-}
-
-/* BUTTON */
 .btn{
   display:inline-block;
   margin-top:18px;
@@ -64,17 +44,10 @@ nav{
   color:white;
   text-decoration:none;
   font-weight:600;
-  box-shadow:0 10px 25px rgba(59,130,246,0.5);
-  transition:.3s;
 }
 
-.btn:hover{
-  transform:translateY(-3px) scale(1.05);
-}
-
-/* SECONDARY */
+/* HERO BUTTONS */
 .hero-buttons a{
-  display:inline-block;
   margin:6px;
   padding:10px 18px;
   border-radius:20px;
@@ -83,7 +56,7 @@ nav{
   text-decoration:none;
 }
 
-/* GRID */
+/* SECTION */
 section{
   padding:60px 20px;
   max-width:1100px;
@@ -92,15 +65,14 @@ section{
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
 }
 
 /* CARD */
 .card{
   background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:22px;
+  border-radius:20px;
   padding:20px;
   backdrop-filter:blur(15px);
   transition:.3s;
@@ -108,45 +80,57 @@ section{
 
 .card:hover{
   transform:translateY(-10px);
-  box-shadow:0 25px 50px rgba(0,0,0,0.6);
+}
+
+/* APP HEADER */
+.app-header{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:10px;
+}
+
+.app-icon{
+  width:50px;
+  height:50px;
+  border-radius:12px;
+}
+
+.meta{
+  font-size:13px;
+  opacity:.8;
 }
 
 /* PHONE */
 .phone{
-  width:260px;
+  width:240px;
   margin:auto;
   background:#000;
-  border-radius:40px;
-  padding:12px;
+  border-radius:35px;
+  padding:10px;
   position:relative;
-  box-shadow:0 25px 60px rgba(0,0,0,0.7);
 }
 
-/* NOTCH */
 .phone::before{
   content:"";
   position:absolute;
-  top:8px;
+  top:6px;
   left:50%;
   transform:translateX(-50%);
-  width:80px;
-  height:15px;
+  width:70px;
+  height:12px;
   background:#111;
   border-radius:10px;
 }
 
-/* SCREEN */
 .screen{
-  height:480px;
+  height:420px;
   overflow:hidden;
-  border-radius:25px;
-  position:relative;
+  border-radius:20px;
 }
 
-/* SLIDES */
 .slides{
   display:flex;
-  height:100%;
   transition:transform .4s ease;
 }
 
@@ -160,18 +144,17 @@ section{
   object-fit:cover;
 }
 
-/* INSTALL */
+/* BUTTON */
 .play{
   display:block;
-  margin-top:15px;
-  padding:14px;
-  border-radius:30px;
+  margin-top:12px;
+  padding:12px;
+  border-radius:25px;
   background:linear-gradient(45deg,#3b82f6,#9333ea);
   text-align:center;
-  color:white;
   text-decoration:none;
+  color:white;
   font-weight:600;
-  box-shadow:0 10px 25px rgba(59,130,246,0.4);
 }
 
 /* FOOTER */
@@ -183,12 +166,7 @@ footer{
 
 /* MOBILE */
 @media(max-width:768px){
-  .phone{
-    width:220px;
-  }
-  .screen{
-    height:400px;
-  }
+  .screen{height:360px;}
 }
 </style>
 </head>
@@ -220,8 +198,16 @@ footer{
 
   <div class="grid">
 
-    <!-- APP CARD TEMPLATE -->
+    <!-- WA -->
     <div class="card">
+      <div class="app-header">
+        <img src="images/wa_icon.png" class="app-icon">
+        <div>
+          <b>WA Status Saver 2026</b>
+          <div class="meta">⭐ 4.5 • 500+ downloads</div>
+        </div>
+      </div>
+
       <div class="phone">
         <div class="screen" id="slider1">
           <div class="slides">
@@ -236,9 +222,64 @@ footer{
           </div>
         </div>
       </div>
-      <h3>WA Status Saver 2026</h3>
-      <p>Save WhatsApp statuses instantly.</p>
+
       <a class="play" href="https://play.google.com/store/apps/details?id=com.appgenstudio.wa_status_saver_2026">Install</a>
+    </div>
+
+    <!-- QR -->
+    <div class="card">
+      <div class="app-header">
+        <img src="images/qr_icon.png" class="app-icon">
+        <div>
+          <b>QR Lite Scanner</b>
+          <div class="meta">⭐ 4.4 • 200+ downloads</div>
+        </div>
+      </div>
+
+      <div class="phone">
+        <div class="screen" id="slider2">
+          <div class="slides">
+            <div class="slide"><img src="images/qr1.png"></div>
+            <div class="slide"><img src="images/qr2.png"></div>
+            <div class="slide"><img src="images/qr3.png"></div>
+            <div class="slide"><img src="images/qr4.png"></div>
+            <div class="slide"><img src="images/qr5.png"></div>
+            <div class="slide"><img src="images/qr6.png"></div>
+            <div class="slide"><img src="images/qr7.png"></div>
+            <div class="slide"><img src="images/qr8.png"></div>
+          </div>
+        </div>
+      </div>
+
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudioo.qrlite">Install</a>
+    </div>
+
+    <!-- PDF -->
+    <div class="card">
+      <div class="app-header">
+        <img src="images/pdf_icon.png" class="app-icon">
+        <div>
+          <b>PDF Toolkit</b>
+          <div class="meta">⭐ 4.6 • 200+ downloads</div>
+        </div>
+      </div>
+
+      <div class="phone">
+        <div class="screen" id="slider3">
+          <div class="slides">
+            <div class="slide"><img src="images/pdf1.png"></div>
+            <div class="slide"><img src="images/pdf2.png"></div>
+            <div class="slide"><img src="images/pdf3.png"></div>
+            <div class="slide"><img src="images/pdf4.png"></div>
+            <div class="slide"><img src="images/pdf5.png"></div>
+            <div class="slide"><img src="images/pdf6.png"></div>
+            <div class="slide"><img src="images/pdf7.png"></div>
+            <div class="slide"><img src="images/pdf8.png"></div>
+          </div>
+        </div>
+      </div>
+
+      <a class="play" href="https://play.google.com/store/apps/details?id=com.appzenstudio.pdftoolkit">Install</a>
     </div>
 
   </div>
@@ -255,32 +296,34 @@ function initSlider(id){
   let startX = 0;
 
   function update(){
-    container.style.transform = `translateX(-${index * 100}%)`;
+    container.style.transform = `translateX(-${index*100}%)`;
   }
 
   setInterval(()=>{
-    index = (index + 1) % container.children.length;
+    index=(index+1)%container.children.length;
     update();
   },2500);
 
   container.addEventListener("touchstart",(e)=>{
-    startX = e.touches[0].clientX;
+    startX=e.touches[0].clientX;
   });
 
   container.addEventListener("touchend",(e)=>{
-    let diff = startX - e.changedTouches[0].clientX;
+    let diff=startX-e.changedTouches[0].clientX;
 
-    if(diff > 50) index++;
-    if(diff < -50) index--;
+    if(diff>50) index++;
+    if(diff<-50) index--;
 
-    if(index < 0) index = 0;
-    if(index >= container.children.length) index = container.children.length-1;
+    if(index<0) index=0;
+    if(index>=container.children.length) index=container.children.length-1;
 
     update();
   });
 }
 
 initSlider("slider1");
+initSlider("slider2");
+initSlider("slider3");
 </script>
 
 </body>
